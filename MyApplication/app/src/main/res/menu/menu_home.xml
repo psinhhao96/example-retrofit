@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/managerment_toolbar_home"
+        android:icon="@mipmap/ic_action_menu"
+        app:showAsAction="always"
+        android:title="manage">
+    </item>
+
+    <item
+        android:id="@+id/alert_toolbar_home"
+        android:icon="@mipmap/ic_action_notifications"
+        app:showAsAction="always"
+        android:title="alert_home"></item>
+
+</menu>

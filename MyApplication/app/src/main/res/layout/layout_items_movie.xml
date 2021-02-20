@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_197sdp"
+    android:background="@color/bg_menu">
+    <LinearLayout
+        android:id="@+id/linearlayout_items_movie"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_52sdp">
+        <TextView
+            android:id="@+id/txt_title_items_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_items_movie"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_145sdp"
+        android:layout_below="@+id/linearlayout_items_movie"
+        />
+</RelativeLayout>

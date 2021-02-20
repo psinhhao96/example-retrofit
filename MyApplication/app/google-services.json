@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "338120713761",
+    "project_id": "myapplicationkotlin-75310",
+    "storage_bucket": "myapplicationkotlin-75310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338120713761:android:712bf7e3687662bca06560",
+        "android_client_info": {
+          "package_name": "hutech.com.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338120713761-2utdv9ndc4odd4lk2lq9vl76tc45muvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ2r4jKtvV8RvWHIBt_2NF0akIJ-a5GYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338120713761-2utdv9ndc4odd4lk2lq9vl76tc45muvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
