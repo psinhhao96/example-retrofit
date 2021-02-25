@@ -43,6 +43,7 @@ class HomeAdapter(private var context: Context, private var listData: List<Secti
         when(listData[position].style){
             HomeStyle.CATEGORY.style() -> {
                 val holder = holder as HomeCategoryViewHolder
+                Log.d("HomeAdapter","Title: ${listData[position].title}")
                 holder.txtTitle.setText(listData[position].title)
             }
         }
@@ -53,7 +54,7 @@ class HomeAdapter(private var context: Context, private var listData: List<Secti
     }
 
     override fun getItemViewType(position: Int): Int {
-        Log.d("HomeAdapter","getItemViewType, position: $position")
+        //Log.d("HomeAdapter","getItemViewType, position: $position")
         return position
     }
 

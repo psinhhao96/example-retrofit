@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/linearlayout_detail_movie"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_202sdp"
+
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitEnd"
+            android:background="@drawable/activity_home_background" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_16sdp"
+            android:paddingRight="@dimen/_16sdp">
+
+            <TextView
+                android:id="@+id/txt_title_detail_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="title"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_info_detail_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:text="Phim bộ"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Mô tả You could also try setting translationZ as suggested in the answer to a similar question. For me this works on an emulator running API 17 and the progress bar appeared on top as expected. If you get any warning than check your build version"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg_menu"
+        android:paddingLeft="@dimen/_16sdp"
+        android:paddingRight="@dimen/_16sdp"
+        android:layout_below="@+id/linearlayout_detail_movie">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="Đạo diễn:"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/txt_director_detail_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:text="Kim Nam Jun"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="Diễn viên:"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/txt_actor_detail_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:text="Rang Na RaWhy don't you use a compound drawable? The image will be inside the TextView, so it won't be covered by"
+                android:maxLines="4"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="Âm thanh:"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/txt_sound_detail_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:text="Tiếng gốc"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="Phụ đề:"
+                android:layout_weight="1"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/txt_caption_detail_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:textSize="10dp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:text="Tiếng việt"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

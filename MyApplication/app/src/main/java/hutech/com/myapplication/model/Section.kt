@@ -8,6 +8,7 @@ class Section {
     @Expose
     var title : String = ""
 
+
     @SerializedName("style")
     @Expose
     var style : String = ""
@@ -19,6 +20,6 @@ class Section {
     constructor()
 
     override fun toString(): String {
-        return "Section(title_section='$title', type='$style', items=$items)"
+        return "Section(title_section='$title', style='$style', items=$items)"
     }
 }

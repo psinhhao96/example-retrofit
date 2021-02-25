@@ -54,7 +54,10 @@ class HomeCategoriesAdapter(private val context: Context, private val data: Sect
         fun updateItems(item: Item){
             txtTitle.text = item.title
             txtSubtitle.text = item.sub_title
-            Glide.with(context).load(item.image).into(imageView)
+            Glide.with(context)
+                .load(item.image)
+//                .override(50)
+                .into(imageView)
         }
 
         fun itemViewClick(itemView: View){

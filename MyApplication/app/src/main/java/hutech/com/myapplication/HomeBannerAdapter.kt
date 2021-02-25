@@ -25,7 +25,9 @@ class HomeBannerAdapter(private val context: Context, private val data: Section 
     override fun onBindViewHolder(holder: HomeBannerViewHolder, position: Int) {
         Log.d("HomeBannerAdapter","imageURL: ${data.items[position].image}")
         //Picasso.with(context).load(data.items[position].image).into(holder.imageView)
-        Glide.with(context).load(data.items[position].image).into(holder.imageView)
+        Glide.with(context)
+            .load(data.items[position].image)
+            .into(holder.imageView)
     }
 
     override fun getItemCount(): Int {

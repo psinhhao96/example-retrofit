@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import hutech.com.myapplication.model.Item
 import hutech.com.myapplication.model.Section
 import kotlinx.android.synthetic.main.item_poster_header.view.*
@@ -78,6 +79,7 @@ class ItemMovieViewHolder: RecyclerView.ViewHolder{
     fun updateItem(context: Context, item: Item){
         Glide.with(context)
             .load(item.image)
+            .apply(RequestOptions.placeholderOf(R.drawable.icon_placeholder))
             .override(100,145) //scale image
             .into(imageView)
     }
