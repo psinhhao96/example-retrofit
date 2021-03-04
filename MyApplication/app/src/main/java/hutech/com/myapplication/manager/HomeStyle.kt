@@ -4,7 +4,8 @@ enum class HomeStyle {
     BANNER,
     CATEGORY,
     POSTER_HEADER,
-    POSTER_HORIZONTAL;
+    POSTER_HORIZONTAL,
+    ;
 
     fun style() : String{
         return when(this){

@@ -1,4 +1,4 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import android.content.Context
 import android.content.Intent
@@ -7,13 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import hutech.com.myapplication.model.Category
+import hutech.com.myapplication.R
 import hutech.com.myapplication.model.Item
 import hutech.com.myapplication.model.Section
-import java.util.zip.Inflater
 
 class HomeCategoriesAdapter(private val context: Context, private val data: Section) : RecyclerView.Adapter<HomeCategoriesAdapter.HomeCategoriesViewHolder>() {
 

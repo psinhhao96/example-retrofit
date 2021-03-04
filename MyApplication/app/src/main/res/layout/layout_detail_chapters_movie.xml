@@ -6,11 +6,11 @@
     android:orientation="vertical"
     android:background="@color/bg_menu">
     <RelativeLayout
-        android:id="@+id/linearlayout_detail_movie"
+        android:id="@+id/realativelayout_detail_chapters_movie"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_202sdp">
         <ImageView
-            android:id="@+id/img_layout_detail_movie"
+            android:id="@+id/img_layout_detail_chapters_movie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitEnd"
@@ -24,7 +24,7 @@
             android:paddingRight="@dimen/_16sdp">
 
             <TextView
-                android:id="@+id/txt_title_detail_movie"
+                android:id="@+id/txt_title_detail_chapters_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="title"
@@ -33,7 +33,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txt_info_detail_movie"
+                android:id="@+id/txt_info_detail_chapters_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_7sdp"
@@ -41,7 +41,7 @@
                 android:textColor="@color/white"
                 android:textSize="10dp" />
             <TextView
-                android:id="@+id/txt_description_detail_movie"
+                android:id="@+id/txt_description_detail_chapters_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -58,7 +58,7 @@
         android:paddingLeft="@dimen/_16sdp"
         android:paddingRight="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_below="@+id/linearlayout_detail_movie">
+        android:layout_below="@+id/realativelayout_detail_chapters_movie">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                 android:text="Đạo diễn:"
                 android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/txt_director_detail_movie"
+                android:id="@+id/txt_director_detail_chapters_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
@@ -90,7 +90,7 @@
                 android:text="Diễn viên:"
                 android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/txt_actor_detail_movie"
+                android:id="@+id/txt_actor_detail_chapters_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
@@ -110,7 +110,7 @@
                 android:text="Âm thanh:"
                 android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/txt_sound_detail_movie"
+                android:id="@+id/txt_sound_detail_chapters_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
@@ -131,7 +131,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/txt_caption_detail_movie"
+                android:id="@+id/txt_caption_detail_chapters_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="25"
@@ -140,16 +140,5 @@
                 android:text="Tiếng việt"
                 android:textColor="@color/white"/>
         </LinearLayout>
-        <Button
-            android:id="@+id/btn_play_detail_movie"
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:text="Mở phim"
-            android:textSize="12.5dp"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/background_button_layout_detail_movie"
-            android:layout_marginBottom="@dimen/_20sdp"/>
     </LinearLayout>
 </RelativeLayout>

@@ -1,11 +1,11 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import hutech.com.myapplication.R
 import hutech.com.myapplication.manager.HomeStyle
 import hutech.com.myapplication.model.Section
 

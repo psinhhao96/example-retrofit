@@ -1,4 +1,4 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import hutech.com.myapplication.R
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.

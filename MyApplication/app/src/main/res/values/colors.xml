@@ -8,7 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_menu">#2F333F</color>
-    <color name="bg_chapter">#393e4d</color>
+    <color name="bg_chapter">#33576277</color>
+    <color name="chapter_color">#393e4d</color>
     <color name="sub_title">#FFF</color>
     <color name="selected_color">#4cffff</color>
 </resources>

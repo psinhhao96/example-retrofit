@@ -1,4 +1,4 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.observe
-import hutech.com.myapplication.manager.ErrorCode
+import hutech.com.myapplication.R
 import hutech.com.myapplication.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {

@@ -1,4 +1,4 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import android.content.Context
 import android.util.Log
@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import hutech.com.myapplication.R
 
-import hutech.com.myapplication.manager.ErrorCode
-import hutech.com.myapplication.model.Banner
 import hutech.com.myapplication.model.Section
 
 class HomeBannerAdapter(private val context: Context, private val data: Section ) :

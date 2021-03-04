@@ -1,15 +1,11 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
-import android.widget.Toolbar
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import hutech.com.myapplication.model.Category
+import hutech.com.myapplication.R
 import hutech.com.myapplication.viewmodel.HomeViewModel
 
 class HomeActivity : AppCompatActivity() {

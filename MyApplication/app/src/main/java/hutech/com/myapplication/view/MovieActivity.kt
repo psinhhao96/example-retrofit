@@ -1,10 +1,11 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import hutech.com.myapplication.R
 import hutech.com.myapplication.viewmodel.MovieViewModel
 
 class MovieActivity : AppCompatActivity() {

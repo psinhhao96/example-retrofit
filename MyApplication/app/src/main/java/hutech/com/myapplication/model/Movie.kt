@@ -3,7 +3,7 @@ package hutech.com.myapplication.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Banner {
+class Movie {
     @SerializedName("id")
     @Expose
     var id : String = ""

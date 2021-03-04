@@ -1,8 +1,9 @@
-package hutech.com.myapplication
+package hutech.com.myapplication.view
 
 import android.content.Context
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -10,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import hutech.com.myapplication.R
 import hutech.com.myapplication.model.Item
 import hutech.com.myapplication.model.Section
-import kotlinx.android.synthetic.main.item_poster_header.view.*
 
 class MoviePosterViewHolder : RecyclerView.ViewHolder, View.OnClickListener {
     private var imgPoster: ImageView
@@ -85,7 +86,71 @@ class ItemMovieViewHolder: RecyclerView.ViewHolder{
     }
 }
 
-class EmptyViewHolder: RecyclerView.ViewHolder{
+class EmptyViewHolder: RecyclerView.ViewHolder {
+    constructor(itemView: View) : super(itemView) {
+    }
+}
+class DetailChaptersMovieViewHolder : RecyclerView.ViewHolder{
+    private val imageView : ImageView
+    private val txtTitle : TextView
+    private val txtInfo : TextView
+    private val txtDescription : TextView
+    private val txtDirector : TextView
+    private val txtActor : TextView
+    private val txtSound : TextView
+    private val txtCaption : TextView
     constructor(itemView: View): super(itemView){
+        imageView = itemView.findViewById(R.id.img_layout_detail_chapters_movie)
+        txtTitle = itemView.findViewById(R.id.txt_title_detail_chapters_movie)
+        txtDescription = itemView.findViewById(R.id.txt_description_detail_chapters_movie)
+        txtDirector = itemView.findViewById(R.id.txt_director_detail_chapters_movie)
+        txtActor = itemView.findViewById(R.id.txt_actor_detail_chapters_movie)
+        txtSound = itemView.findViewById(R.id.txt_sound_detail_chapters_movie)
+        txtCaption = itemView.findViewById(R.id.txt_caption_detail_chapters_movie)
+        txtInfo = itemView.findViewById(R.id.txt_info_detail_chapters_movie)
+    }
+}
+
+class DetailMovieViewHolder : RecyclerView.ViewHolder{
+    private val imageView : ImageView
+    private val btnPlay : Button
+    private val txtTitle : TextView
+    private val txtInfo : TextView
+    private val txtDescription : TextView
+    private val txtDirector : TextView
+    private val txtActor : TextView
+    private val txtSound : TextView
+    private val txtCaption : TextView
+    constructor(itemView: View): super(itemView){
+        imageView = itemView.findViewById(R.id.img_layout_detail_movie)
+        btnPlay = itemView.findViewById(R.id.btn_play_detail_movie)
+        txtTitle = itemView.findViewById(R.id.txt_title_detail_movie)
+        txtDescription = itemView.findViewById(R.id.txt_description_detail_movie)
+        txtDirector = itemView.findViewById(R.id.txt_director_detail_movie)
+        txtActor = itemView.findViewById(R.id.txt_actor_detail_movie)
+        txtSound = itemView.findViewById(R.id.txt_sound_detail_movie)
+        txtCaption = itemView.findViewById(R.id.txt_caption_detail_movie)
+        txtInfo = itemView.findViewById(R.id.txt_info_detail_movie)
+    }
+}
+
+class ChaptersMovieViewHolder : RecyclerView.ViewHolder{
+    private val btnExtend : ImageButton
+    private val recyclerView : RecyclerView
+    private val btnFull : Button
+    constructor(itemView: View): super(itemView){
+        btnExtend = itemView.findViewById(R.id.btn_extend_layout_chapters)
+        recyclerView = itemView.findViewById(R.id.recyclerview_layout_chapters)
+        btnFull = itemView.findViewById(R.id.btn_full_layout_chapters)
+    }
+}
+class ItemChapterViewHolder : RecyclerView.ViewHolder{
+    private val txtNumber : TextView
+    constructor(itemView: View): super(itemView){
+        txtNumber = itemView.findViewById(R.id.txt_number_item_chapter)
+    }
+
+    fun updateItem(position : Int){
+        txtNumber.setText(position + 1)
     }
 }
