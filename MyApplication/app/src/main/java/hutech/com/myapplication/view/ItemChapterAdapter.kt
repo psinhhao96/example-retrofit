@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hutech.com.myapplication.R
-import hutech.com.myapplication.model.Section
+import hutech.com.myapplication.model.SectionMovie
 
-class ItemChapterAdapter(private val context: Context, private val data : Section) :
+class ItemChapterAdapter(private val context: Context, private val data : SectionMovie) :
     RecyclerView.Adapter<ItemChapterViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemChapterViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_chapter_movie, parent, false)

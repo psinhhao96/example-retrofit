@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import hutech.com.myapplication.R
-import hutech.com.myapplication.model.Item
+import hutech.com.myapplication.model.ItemMovie
 import hutech.com.myapplication.model.Section
+import hutech.com.myapplication.model.SectionMovie
 
 class MoviePosterViewHolder : RecyclerView.ViewHolder, View.OnClickListener {
     private var imgPoster: ImageView
@@ -23,8 +24,8 @@ class MoviePosterViewHolder : RecyclerView.ViewHolder, View.OnClickListener {
     private var txtTitle: TextView
     private var txtSubtitle: TextView
     private var controlHeader: View
-    private lateinit var item: Item
-    var listener: ((Item)->Unit)? = null
+    private lateinit var itemMovie: ItemMovie
+    var listener: ((ItemMovie)->Unit)? = null
     constructor(itemView: View) : super(itemView){
         imgPoster = itemView.findViewById(R.id.img_poster_header)
         controlHeader = itemView.findViewById(R.id.include_poster_header)
@@ -40,14 +41,14 @@ class MoviePosterViewHolder : RecyclerView.ViewHolder, View.OnClickListener {
     }
 
 
-    fun updateItemView(item: Item){
-        this.item = item
-        txtTitle.text = item.title
-        txtSubtitle.text = item.basic_info
+    fun updateItemView(itemMovie: ItemMovie){
+        this.itemMovie = itemMovie
+        txtTitle.text = itemMovie.title
+        txtSubtitle.text = itemMovie.basic_info
     }
 
     override fun onClick(p0: View?) {
-        this.listener?.invoke(item)
+        this.listener?.invoke(itemMovie)
     }
 }
 class MovieItemsViewHolder : RecyclerView.ViewHolder{
@@ -55,7 +56,7 @@ class MovieItemsViewHolder : RecyclerView.ViewHolder{
     private var recyclerView: RecyclerView
     private var linearLayoutManager: LinearLayoutManager
 
-    constructor(itemView: View, context: Context, section: Section) : super(itemView){
+    constructor(itemView: View, context: Context, section: SectionMovie) : super(itemView){
         val itemMovieAdapter = ItemMovieAdapter(context, section)
         txtTitle = itemView.findViewById(R.id.txt_title_items_movie)
         recyclerView = itemView.findViewById(R.id.recyclerview_items_movie)
@@ -66,7 +67,7 @@ class MovieItemsViewHolder : RecyclerView.ViewHolder{
         recyclerView.adapter = itemMovieAdapter
     }
 
-    fun updateItem(section: Section){
+    fun updateItem(section: SectionMovie){
         txtTitle.text = section.title
     }
 }
@@ -77,9 +78,9 @@ class ItemMovieViewHolder: RecyclerView.ViewHolder{
         imageView = itemView.findViewById(R.id.imgview_item_movie)
     }
 
-    fun updateItem(context: Context, item: Item){
+    fun updateItem(context: Context, itemMovie: ItemMovie){
         Glide.with(context)
-            .load(item.image)
+            .load(itemMovie.image)
             .apply(RequestOptions.placeholderOf(R.drawable.icon_placeholder))
             .override(100,145) //scale image
             .into(imageView)

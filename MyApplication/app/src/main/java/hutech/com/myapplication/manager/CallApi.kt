@@ -2,8 +2,7 @@ package hutech.com.myapplication.manager
 
 import android.util.Log
 import com.google.gson.Gson
-import hutech.com.myapplication.model.SectionHomeRespone
-import hutech.com.myapplication.model.Section
+import hutech.com.myapplication.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class CallApi {
-    fun getCurrentData(onSuccess : (List<Section>) -> Unit, onFailure: (ErrorCode)->Unit){
+    fun getHomeData(onSuccess : (List<SectionHome>) -> Unit, onFailure: (ErrorCode)->Unit){  //get data home category
         //var onSuccess : (MutableList<Section>) -> Unit
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -39,14 +38,14 @@ class CallApi {
         })
     }
 
-    fun getPosterData(onSuccess: (List<Section>) -> Unit, onFailure: (ErrorCode) -> Unit){
+    fun getPosterData(onSuccess: (List<SectionMovie>) -> Unit, onFailure: (ErrorCode) -> Unit){  //get data movie
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
         val service = retrofit.create(ApiService::class.java)
         val call = service.getMovies()
-        call.enqueue(object : Callback<List<SectionHomeRespone>> {
+        call.enqueue(object : Callback<List<SectionMovieRespone>> {
             override fun onResponse(
-                call: Call<List<SectionHomeRespone>>?,
-                response: Response<List<SectionHomeRespone>>?
+                call: Call<List<SectionMovieRespone>>?,
+                response: Response<List<SectionMovieRespone>>?
             ) {
                 if (response?.code() == 200){
                     Log.d("CallApi","getPosterData------Code: ${response?.code()}")
@@ -56,8 +55,31 @@ class CallApi {
                 }
             }
 
-            override fun onFailure(call: Call<List<SectionHomeRespone>>?, t: Throwable?) {
+            override fun onFailure(call: Call<List<SectionMovieRespone>>?, t: Throwable?) {
                 onFailure(ErrorCode.CONNECTFAIL)
+            }
+
+        })
+    }
+
+    fun getDetailMovie(onSuccess: (List<SectionMovie>) -> Unit, onFailure: (ErrorCode) -> Unit){
+        val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
+        val service = retrofit.create(ApiService::class.java)
+        val call = service.getDetailMovie()
+        call.enqueue(object : Callback<List<SectionMovieRespone>>{
+            override fun onResponse(
+                call: Call<List<SectionMovieRespone>>?,
+                response: Response<List<SectionMovieRespone>>?
+            ) {
+                if (response?.code() == 200){
+                    val apiRespone = response.body()[0]
+                    Log.d("CallApi","getDetailMovie------Data: ${apiRespone.data}")
+                    onSuccess(apiRespone.data)
+                }
+            }
+
+            override fun onFailure(call: Call<List<SectionMovieRespone>>?, t: Throwable?) {
+                TODO("Not yet implemented")
             }
 
         })

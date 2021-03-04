@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hutech.com.myapplication.R
 import hutech.com.myapplication.manager.HomeStyle
-import hutech.com.myapplication.model.Section
+import hutech.com.myapplication.model.SectionHome
 
-class HomeAdapter(private var context: Context, private var listData: List<Section>) :
+class HomeAdapter(private var context: Context, private var listData: List<SectionHome>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

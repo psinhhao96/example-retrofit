@@ -9,16 +9,14 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import hutech.com.myapplication.R
+import hutech.com.myapplication.model.SectionHome
 
-import hutech.com.myapplication.model.Section
-
-class HomeBannerAdapter(private val context: Context, private val data: Section ) :
+class HomeBannerAdapter(private val context: Context, private val data: SectionHome ) :
     RecyclerView.Adapter<HomeBannerAdapter.HomeBannerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_home_banner, parent,false)
         return HomeBannerViewHolder(view)
-
     }
 
     override fun onBindViewHolder(holder: HomeBannerViewHolder, position: Int) {

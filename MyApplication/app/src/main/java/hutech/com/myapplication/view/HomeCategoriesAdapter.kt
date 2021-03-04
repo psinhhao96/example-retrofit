@@ -10,10 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import hutech.com.myapplication.R
-import hutech.com.myapplication.model.Item
-import hutech.com.myapplication.model.Section
+import hutech.com.myapplication.model.ItemCategory
+import hutech.com.myapplication.model.SectionHome
 
-class HomeCategoriesAdapter(private val context: Context, private val data: Section) : RecyclerView.Adapter<HomeCategoriesAdapter.HomeCategoriesViewHolder>() {
+class HomeCategoriesAdapter(private val context: Context, private val data: SectionHome) : RecyclerView.Adapter<HomeCategoriesAdapter.HomeCategoriesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoriesViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_home_categories, parent, false)
@@ -49,7 +49,7 @@ class HomeCategoriesAdapter(private val context: Context, private val data: Sect
 
         }
 
-        fun updateItems(item: Item){
+        fun updateItems(item: ItemCategory){
             txtTitle.text = item.title
             txtSubtitle.text = item.sub_title
             Glide.with(context)

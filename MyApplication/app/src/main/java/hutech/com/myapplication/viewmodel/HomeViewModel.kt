@@ -6,14 +6,15 @@ import hutech.com.myapplication.manager.CallApi
 import hutech.com.myapplication.manager.ErrorCode
 import hutech.com.myapplication.model.SectionHomeRespone
 import hutech.com.myapplication.model.Section
+import hutech.com.myapplication.model.SectionHome
 
 class HomeViewModel {
     private val callApi : CallApi = CallApi()
-    var data = MutableLiveData<List<Section>>()
+    var data = MutableLiveData<List<SectionHome>>()
     var errorCode = MutableLiveData<ErrorCode>()
 
     fun getData(){
-        callApi.getCurrentData(onSuccess = {
+        callApi.getHomeData(onSuccess = {
             data.value = it
             Log.d("HomeViewModel", "data: $it")
         }, onFailure = {
