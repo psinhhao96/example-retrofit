@@ -40,7 +40,7 @@ class ItemMovie {
     @Expose
     val info: MutableList<ItemInfo> = mutableListOf()
     override fun toString(): String {
-        return "Item(id='$id', title='$title', sub_title='$sub_title', image='$image')"
+        return "Item(id='$id', title='$title', sub_title='$sub_title', typefilm='$typefilm', image='$image')"
     }
 
 

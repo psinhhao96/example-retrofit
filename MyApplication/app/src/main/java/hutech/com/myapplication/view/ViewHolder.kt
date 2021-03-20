@@ -1,12 +1,14 @@
 package hutech.com.myapplication.view
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -74,16 +76,26 @@ class MovieItemsViewHolder : RecyclerView.ViewHolder{
 
 class ItemMovieViewHolder: RecyclerView.ViewHolder{
     private val imageView : ImageView
+    private lateinit var context: Context
     constructor(itemView: View) : super(itemView){
         imageView = itemView.findViewById(R.id.imgview_item_movie)
     }
 
     fun updateItem(context: Context, itemMovie: ItemMovie){
+        this.context = context
         Glide.with(context)
             .load(itemMovie.image)
             .apply(RequestOptions.placeholderOf(R.drawable.icon_placeholder))
             .override(100,145) //scale image
             .into(imageView)
+    }
+
+    fun itemClick(itemView: View){
+        itemView.setOnClickListener {
+            val intent = Intent(context, DetailMovieActivity::class.java)
+            context.startActivity(intent)
+        }
+
     }
 }
 
@@ -110,6 +122,19 @@ class DetailChaptersMovieViewHolder : RecyclerView.ViewHolder{
         txtCaption = itemView.findViewById(R.id.txt_caption_detail_chapters_movie)
         txtInfo = itemView.findViewById(R.id.txt_info_detail_chapters_movie)
     }
+
+    fun updateItem(context: Context, itemMovie: ItemMovie){
+        txtTitle.text = itemMovie.title
+        txtDescription.text = itemMovie.description
+        //Gán thông tin
+        if (itemMovie.info.size > 0){
+            txtDirector.text = itemMovie.info[0].value
+            txtActor.text = itemMovie.info[1].value
+            txtSound.text = itemMovie.info[2].value
+            txtCaption.text = itemMovie.info[3].value
+        }
+        Glide.with(context).load(itemMovie.image).into(imageView)
+    }
 }
 
 class DetailMovieViewHolder : RecyclerView.ViewHolder{
@@ -133,17 +158,41 @@ class DetailMovieViewHolder : RecyclerView.ViewHolder{
         txtCaption = itemView.findViewById(R.id.txt_caption_detail_movie)
         txtInfo = itemView.findViewById(R.id.txt_info_detail_movie)
     }
+
+    fun updateItem(context: Context, itemMovie: ItemMovie){
+        txtTitle.text = itemMovie.title
+        txtDescription.text = itemMovie.description
+        //Gán thông tin
+        if (itemMovie.info.size > 0){
+            txtDirector.text = itemMovie.info[0].value
+            txtActor.text = itemMovie.info[1].value
+            txtSound.text = itemMovie.info[2].value
+            txtCaption.text = itemMovie.info[3].value
+        }
+        Glide.with(context).load(itemMovie.image).into(imageView)
+    }
 }
 
 class ChaptersMovieViewHolder : RecyclerView.ViewHolder{
     private val btnExtend : ImageButton
     private val recyclerView : RecyclerView
     private val btnFull : Button
-    constructor(itemView: View): super(itemView){
+    private var gridLayoutManager: GridLayoutManager
+    constructor(itemView: View, context: Context, data: ItemMovie): super(itemView){
+        val itemChapterAdapter = ItemChapterAdapter(context, data)
+        gridLayoutManager = GridLayoutManager(context, 5)
         btnExtend = itemView.findViewById(R.id.btn_extend_layout_chapters)
         recyclerView = itemView.findViewById(R.id.recyclerview_layout_chapters)
         btnFull = itemView.findViewById(R.id.btn_full_layout_chapters)
+        //val spacingInPixels = R.dimen._15sdp
+//        recyclerView.addItemDecoration(SpacesItemDecoration(15, 5))
+        //recyclerView.setHasFixedSize(true)
+//        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.layoutManager = gridLayoutManager
+
+        recyclerView.adapter = itemChapterAdapter
     }
+
 }
 class ItemChapterViewHolder : RecyclerView.ViewHolder{
     private val txtNumber : TextView
@@ -152,6 +201,6 @@ class ItemChapterViewHolder : RecyclerView.ViewHolder{
     }
 
     fun updateItem(position : Int){
-        txtNumber.setText(position + 1)
+        txtNumber.text = (position + 1).toString()
     }
 }

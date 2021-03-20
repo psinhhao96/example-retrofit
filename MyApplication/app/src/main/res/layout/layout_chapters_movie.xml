@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingLeft="@dimen/_16sdp"
-    android:background="@color/bg_chapter">
+    android:paddingRight="@dimen/_16sdp"
+    android:background="@color/bg_primary">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

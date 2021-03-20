@@ -62,24 +62,24 @@ class CallApi {
         })
     }
 
-    fun getDetailMovie(onSuccess: (List<SectionMovie>) -> Unit, onFailure: (ErrorCode) -> Unit){
+    fun getDetailMovie(onSuccess: (List<ItemMovie>) -> Unit, onFailure: (ErrorCode) -> Unit){
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
         val service = retrofit.create(ApiService::class.java)
         val call = service.getDetailMovie()
-        call.enqueue(object : Callback<List<SectionMovieRespone>>{
+        call.enqueue(object : Callback<List<SectionDetailMovieRespone>>{
             override fun onResponse(
-                call: Call<List<SectionMovieRespone>>?,
-                response: Response<List<SectionMovieRespone>>?
+                call: Call<List<SectionDetailMovieRespone>>?,
+                response: Response<List<SectionDetailMovieRespone>>?
             ) {
                 if (response?.code() == 200){
                     val apiRespone = response.body()[0]
-                    Log.d("CallApi","getDetailMovie------Data: ${apiRespone.data}")
+                    Log.d("CallApi","getDetailMovie------Data: ${apiRespone.data[0]}")
                     onSuccess(apiRespone.data)
                 }
             }
 
-            override fun onFailure(call: Call<List<SectionMovieRespone>>?, t: Throwable?) {
-                TODO("Not yet implemented")
+            override fun onFailure(call: Call<List<SectionDetailMovieRespone>>?, t: Throwable?) {
+                onFailure(ErrorCode.CONNECTFAIL)
             }
 
         })

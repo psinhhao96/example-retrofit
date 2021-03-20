@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_58sdp"
-    android:layout_height="@dimen/_58sdp"
-    android:background="@drawable/background_itemchapter"
-    android:layout_marginRight="@dimen/_10sdp"
-    android:layout_marginTop="@dimen/_10sdp"
-    android:layout_marginBottom="@dimen/_10sdp">
+    android:layout_width="@dimen/_57sdp"
+    android:layout_height="@dimen/_57sdp"
+    android:padding="@dimen/_5sdp"
+    android:background="@drawable/background_itemchapter">
     <TextView
         android:id="@+id/txt_number_item_chapter"
         android:layout_width="match_parent"
