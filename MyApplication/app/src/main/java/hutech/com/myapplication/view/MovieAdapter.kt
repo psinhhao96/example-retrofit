@@ -22,7 +22,7 @@ class MovieAdapter(private val context: Context, private val listData: List<Sect
                 else -> {
                     Log.d("MovieAdapter", "style poster: ${HomeStyle.POSTER_HORIZONTAL.style()}")
                     val view = LayoutInflater.from(context).inflate(R.layout.layout_items_movie, parent, false)
-                    MovieItemsViewHolder(view, context, listData[viewType])
+                    MovieItemsViewHolder(view, context)
                 }
             }
         }else {
@@ -45,6 +45,7 @@ class MovieAdapter(private val context: Context, private val listData: List<Sect
                 }
                 else -> {
                     val holder = holder as MovieItemsViewHolder
+                    holder.updateData(listData[position])
                     if(listData[position].items.size > 0){
                         holder.updateItem(listData[position])
                     }

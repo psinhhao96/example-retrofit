@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hutech.com.myapplication.R
+import hutech.com.myapplication.model.ItemChapter
 import hutech.com.myapplication.model.ItemMovie
 import hutech.com.myapplication.model.SectionMovie
 
-class ItemChapterAdapter(private val context: Context, private val data : ItemMovie) :
+class ItemChapterAdapter(private val context: Context, private val listData : List<ItemChapter>) :
     RecyclerView.Adapter<ItemChapterViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemChapterViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_chapter_movie, parent, false)
@@ -20,7 +21,7 @@ class ItemChapterAdapter(private val context: Context, private val data : ItemMo
     }
 
     override fun getItemCount(): Int {
-        return data.chapters.size
+        return listData.size
     }
 
 }

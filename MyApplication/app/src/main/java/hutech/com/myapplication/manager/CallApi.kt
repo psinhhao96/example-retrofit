@@ -81,7 +81,28 @@ class CallApi {
             override fun onFailure(call: Call<List<SectionDetailMovieRespone>>?, t: Throwable?) {
                 onFailure(ErrorCode.CONNECTFAIL)
             }
+        })
+    }
+    //Use mockapi account media@tvlagu.com
+    fun getMoviesRecommend(onSuccess: (List<ItemMovie>) -> Unit, onFailure: (ErrorCode) -> Unit){
+        val retrofit = Retrofit.Builder().baseUrl(BASE_URL_OTHER).addConverterFactory(GsonConverterFactory.create()).build()
+        val service = retrofit.create(ApiService::class.java)
+        val call = service.getMoviesRecommend()
+        call.enqueue(object : Callback<List<SectionMovieRespone>>{
+            override fun onResponse(
+                call: Call<List<SectionMovieRespone>>?,
+                response: Response<List<SectionMovieRespone>>?
+            ) {
+                if(response?.code() == 200){
+                    val apiRespone = response.body()[0]
+                    Log.d("CallApi","getMoviesRecommend------Data: ${apiRespone.items[0]}")
+                    onSuccess(apiRespone.items)
+                }
+            }
 
+            override fun onFailure(call: Call<List<SectionMovieRespone>>?, t: Throwable?) {
+                onFailure(ErrorCode.CONNECTFAIL)
+            }
         })
     }
 }

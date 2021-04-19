@@ -7,4 +7,8 @@ class SectionMovieRespone {
     @SerializedName("data")
     @Expose
     var data : List<SectionMovie> = listOf()
+
+    @SerializedName("items")
+    @Expose
+    var items : List<ItemMovie> = listOf()
 }

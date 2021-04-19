@@ -57,9 +57,10 @@ class MovieItemsViewHolder : RecyclerView.ViewHolder{
     private var txtTitle: TextView
     private var recyclerView: RecyclerView
     private var linearLayoutManager: LinearLayoutManager
+    private var itemMovieAdapter: ItemMovieAdapter
 
-    constructor(itemView: View, context: Context, section: SectionMovie) : super(itemView){
-        val itemMovieAdapter = ItemMovieAdapter(context, section)
+    constructor(itemView: View, context: Context) : super(itemView){
+        itemMovieAdapter = ItemMovieAdapter(context)
         txtTitle = itemView.findViewById(R.id.txt_title_items_movie)
         recyclerView = itemView.findViewById(R.id.recyclerview_items_movie)
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
@@ -67,6 +68,10 @@ class MovieItemsViewHolder : RecyclerView.ViewHolder{
         recyclerView.setHasFixedSize(true)
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = itemMovieAdapter
+    }
+
+    fun updateData(section: SectionMovie){
+        itemMovieAdapter.updateData(section)
     }
 
     fun updateItem(section: SectionMovie){
@@ -89,6 +94,8 @@ class ItemMovieViewHolder: RecyclerView.ViewHolder{
             .override(100,145) //scale image
             .into(imageView)
     }
+
+
 
     fun itemClick(itemView: View){
         itemView.setOnClickListener {
@@ -123,11 +130,11 @@ class DetailChaptersMovieViewHolder : RecyclerView.ViewHolder{
         txtInfo = itemView.findViewById(R.id.txt_info_detail_chapters_movie)
     }
 
-    fun updateItem(context: Context, itemMovie: ItemMovie){
-        txtTitle.text = itemMovie.title
-        txtDescription.text = itemMovie.description
+    fun updateItem(context: Context, itemMovie: ItemMovie?){
+        txtTitle.text = itemMovie?.title
+        txtDescription.text = itemMovie?.description
         //Gán thông tin
-        if (itemMovie.info.size > 0){
+        if (itemMovie?.info?.size!! > 0){
             txtDirector.text = itemMovie.info[0].value
             txtActor.text = itemMovie.info[1].value
             txtSound.text = itemMovie.info[2].value
@@ -159,11 +166,11 @@ class DetailMovieViewHolder : RecyclerView.ViewHolder{
         txtInfo = itemView.findViewById(R.id.txt_info_detail_movie)
     }
 
-    fun updateItem(context: Context, itemMovie: ItemMovie){
-        txtTitle.text = itemMovie.title
-        txtDescription.text = itemMovie.description
+    fun updateItem(context: Context, itemMovie: ItemMovie?){
+        txtTitle.text = itemMovie?.title
+        txtDescription.text = itemMovie?.description
         //Gán thông tin
-        if (itemMovie.info.size > 0){
+        if (itemMovie?.info?.size!! > 0){
             txtDirector.text = itemMovie.info[0].value
             txtActor.text = itemMovie.info[1].value
             txtSound.text = itemMovie.info[2].value
@@ -178,15 +185,15 @@ class ChaptersMovieViewHolder : RecyclerView.ViewHolder{
     private val recyclerView : RecyclerView
     private val btnFull : Button
     private var gridLayoutManager: GridLayoutManager
-    constructor(itemView: View, context: Context, data: ItemMovie): super(itemView){
-        val itemChapterAdapter = ItemChapterAdapter(context, data)
+    constructor(itemView: View, context: Context, data: ItemMovie?): super(itemView){
+        val itemChapterAdapter = ItemChapterAdapter(context, data?.chapters.orEmpty())
         gridLayoutManager = GridLayoutManager(context, 5)
         btnExtend = itemView.findViewById(R.id.btn_extend_layout_chapters)
         recyclerView = itemView.findViewById(R.id.recyclerview_layout_chapters)
         btnFull = itemView.findViewById(R.id.btn_full_layout_chapters)
         //val spacingInPixels = R.dimen._15sdp
-//        recyclerView.addItemDecoration(SpacesItemDecoration(15, 5))
-        //recyclerView.setHasFixedSize(true)
+//        recyclerView.addItemDecoration(SpacesItemDecoration(5, 5))
+        recyclerView.setHasFixedSize(true)
 //        recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.layoutManager = gridLayoutManager
 
@@ -203,4 +210,29 @@ class ItemChapterViewHolder : RecyclerView.ViewHolder{
     fun updateItem(position : Int){
         txtNumber.text = (position + 1).toString()
     }
+}
+
+class DetailItemMovieViewHolder : RecyclerView.ViewHolder{
+    private var txtTitle: TextView
+    private var recyclerView: RecyclerView
+    private var linearLayoutManager: LinearLayoutManager
+    private var detailItemAdapter: DetailItemAdapter
+
+    constructor(itemView: View, context: Context) : super(itemView){
+        detailItemAdapter = DetailItemAdapter(context)
+        txtTitle = itemView.findViewById(R.id.txt_title_items_movie)
+        recyclerView = itemView.findViewById(R.id.recyclerview_items_movie)
+        linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        recyclerView.layoutManager = linearLayoutManager
+        recyclerView.setHasFixedSize(true)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.adapter = detailItemAdapter
+    }
+
+    fun updateData(itemMovie: List<ItemMovie>, title: String){
+        detailItemAdapter.updateData(itemMovie)
+        txtTitle.text = title
+    }
+
+
 }
